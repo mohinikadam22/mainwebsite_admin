@@ -1,0 +1,50 @@
+<div class="text-white bg-primary">Result for lastest "Career Enquiries"</div>
+<div class="table-responsive">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>Career Enquiries</h2>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col">Sr No.</th>
+          <th scope="col">Action</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile No</th>
+          <th scope="col">Technology Choice</th>
+          <th scope="col">Position</th>
+          <th scope="col">Curriculum Vitae</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Cover Letter</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let enq of filtered; let i=index">
+          <td>{{i+1}}</td>
+          <td>
+            <i class="fa fa-trash" (click)="deleteCareerEnquiry(enq.id)" title="Delete"></i>
+          </td>
+          <td>{{enq.name}}</td>
+          <td>{{enq.email}}</td>
+          <td>{{enq.mobile_no}}</td>
+          <td>{{enq.technology_choice}}</td>
+          <td>{{enq.position}}</td>
+          <td><a href="{{ enq.cv.download_url }}" download="{{ enq.cv.file_name }}">Download CV</a></td>
+          <td>{{enq.duration}}</td>
+          <td><a href="{{ enq.cover_letter.download_url }}" download="{{ enq.cover_letter.file_name }}">Download Cover
+              Letter</a></td>
+          <td>{{enq.duration | date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

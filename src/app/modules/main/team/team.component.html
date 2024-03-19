@@ -1,0 +1,65 @@
+<!-- <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-xs-6">
+            <h2>Trainee Development Team Details</h2>
+          </div>
+          <div class="col-xs-6">
+            <a  class="btn btn-success" routerLink="/main/team"><i class="material-icons">&#xE147;</i> <span>Add development</span></a>
+          </div>
+        </div>
+      </div> -->
+      
+<div class="text-white bg-primary">Result for "Lastest Admin Team Details"</div>
+
+<div class="table-responsive">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>Admin Team Details</h2>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-success" routerLink="/main/add-admin-details"><i class="material-icons">&#xE147;</i>
+            <span>Add Admin Team Details </span></a>
+        </div>
+      </div>
+      <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search...">
+      </div>
+    </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Action</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Designation</th>
+            <th>Qulification</th>
+            <th>Experience</th>
+            <th>Status</th>
+            <th>Date</th>
+            
+          </tr>
+        </thead>
+       
+
+        <tbody>
+          <tr *ngFor="let admin of filtered; let i=index">
+            <td>{{i+1}}</td>
+            <td>
+            <i class="fa fa-trash" (click)="deletecontact(admin.id)" title="Delete"></i>&nbsp;
+            </td>
+            <td>{{admin.name}}</td>
+            <td><img [src]="admin.photo" alt="Image" style="width: 80px;"></td>
+            <td>{{ admin.designation_id}}</td>
+            <td>{{ admin.qualification}}</td>
+            <td>{{ admin.experience}}</td>
+            <td>{{ admin.status}}</td>
+            <td>{{ admin.created_at | date }}</td>
+        </tbody>
+      </table>
+    </div>
+  </div>        

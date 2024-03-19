@@ -1,0 +1,55 @@
+<div class="text-white bg-primary">Result for lastest "Career Enquiries"</div>
+<div class="table-responsive">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>Contact Details</h2>
+        </div>
+        <div class="col-xs-6">
+          <!-- <a class="btn btn-success" routerLink="/main/career-enquiry"><i class="material-icons">&#xE147;</i> <span>Add New
+              Enquiry</span></a> -->
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Sr No.</th>
+          <td scope="col">Action</td>
+          <th scope="col">Address</th>
+          <th scope="col">Email_id</th>
+          <th scope="col">Mobile_no</th>
+          <th scope="col">Updated_at No</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="dataGrid">
+          <td>{{ 1 }}</td>
+          <td>
+            <i class="fa fa-trash" (click)="deleteData(dataGrid.id)" title="Delete"></i>
+          </td>
+          <td *ngFor="let grid of data">
+            <div *ngFor="let address of grid.address; let i = index">
+              <b> {{i +1}}</b>.&nbsp;{{ address }}
+            </div>
+          </td>
+          <td *ngFor="let grid of data">
+            <div *ngFor="let email of grid.EmailId; let i = index">
+             <b> {{i +1}}</b>.&nbsp;{{ email }}
+            </div>
+          </td>
+          <td *ngFor="let grid of data; ">
+            <div *ngFor="let contact of grid.contacts; let i = index">
+              <b> {{i +1}}</b>.&nbsp; {{ contact }}
+            </div>
+          </td>
+          <td>{{ dataGrid.updated_at | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #noData>
+      <p>No data available.</p>
+    </ng-template>
+  </div>
+</div>

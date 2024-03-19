@@ -1,0 +1,89 @@
+<h2 class="text-primary"><strong>Dashboard</strong></h2>
+<div class="widget-container" *ngIf="counter">
+    <div class="widget green">
+        <div class="icon">
+            <i class="fa fa-phone-square" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/contact-enquiry">
+                <div class="top">{{counter.contactEnquiries}}</div>  
+                <div class="bottom">Contact Enquiries</div>
+            </a>
+        </div>
+    </div>  
+
+    <div class="widget red">
+        <div class="icon">
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/career-enquiry">
+                <div class="top">{{ counter.careerEnquiries }}</div>
+                <div class="bottom">Career Enquiries</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="widget yellow">
+        <div class="icon">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/port-det"><div class="top"> {{ counter.portfolios }}</div>
+                <div class="bottom">Portfolio</div></a>
+        </div>
+    </div>
+
+    <div class="widget blue">
+        <div class="icon">
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/view-achievements">
+                <div class="top">{{ counter.news }}</div>
+                <div class="bottom">Achivements</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="widget-container">
+    <div class="widget green">
+        <div class="icon">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/view-news">
+                <div class="top">{{ counter.certificates }}</div>
+                <div class="bottom">News Details</div>
+            </a>
+        
+        </div>
+    </div>
+
+    <div class="widget red">
+        <div class="icon">
+            <i class="fa fa-certificate" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/cert-det">
+                <div class="top"> {{ counter.mous }}</div>
+                <div class="bottom">Certificates</div>
+            </a>
+    
+        </div>
+    </div>
+
+    <div class="widget yellow">
+        <div class="icon">
+            <i class="fa fa-folder-open" aria-hidden="true"></i>
+        </div>
+        <div class="value">
+            <a routerLink="/main/mou-det">
+                <div class="top">{{ counter.clientlogos }}</div>
+                <div class="bottom">MOU Work</div>
+            </a>
+       
+        </div>
+    </div>
+</div>

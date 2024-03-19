@@ -1,0 +1,58 @@
+<h1 *ngIf="DataPresent==true">data is Already Been Added Not able to add again </h1> 
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Add Contact Details</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <!-- Mobile Numbers -->
+        <div class="form-group" *ngFor="let mobile of mobileNumbers; let i = index">
+          <div class="input-group mb-2">
+            <input type="text" [(ngModel)]="mobileNumbers[i][i + 1]" name="mobile_no{{ i }}" class="form-control"
+              placeholder="Enter mobile number">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-danger" (click)="removeField('mobile_no', i)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mb-3" [disabled]="DataPresent==true" (click)="addField('mobile_no')">Add Mobile Number</button>
+        &nbsp;
+
+        <!-- Email IDs -->
+
+        <div class="form-group" *ngFor="let email of emailIds; let i = index">
+          <div class="input-group mb-2">
+            <input type="text" [(ngModel)]="emailIds[i][i + 1]" name="email_id{{ i }}" class="form-control"
+              placeholder="Enter email ID">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-danger"  (click)="removeField('email_id', i)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mb-3" [disabled]="DataPresent==true" (click)="addField('email_id')">Add Email ID</button>
+
+        &nbsp;
+
+        <!-- Addresses -->
+
+        <div class="form-group" *ngFor="let addr of addresses; let i = index">
+          <div class="input-group mb-2">
+            <input type="text" [(ngModel)]="addresses[i][i + 1]" name="address{{ i }}" class="form-control"
+              placeholder="Enter address">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-danger" (click)="removeField('address', i)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mb-3" [disabled]="DataPresent==true" (click)="addField('address')">Add Address</button>
+
+        &nbsp;
+
+        <div>
+          <button type="submit" class="btn btn-success mt-3">Add Contact</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

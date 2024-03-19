@@ -1,0 +1,66 @@
+<div class="text-white bg-primary">Result for "Lastest Designation Details"</div>
+<!-- Add designation form -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form *ngIf="!selectedDesignation" (submit)="addDesignation()" class="my-3">
+        <div class="input-group">
+          <input type="text" [(ngModel)]="newDesignation" name="designation" class="form-control" placeholder="Enter designation">
+          <button type="submit" class="btn btn-primary">Add Designation</button>
+        </div>
+      </form>
+
+      <!-- Update designation form -->
+      <form *ngIf="selectedDesignation" (submit)="updateDesignation()" class="my-3">
+        <div class="input-group">
+          <input type="text" [(ngModel)]="updatedDesignation" class="form-control" placeholder="Update designation" [ngModelOptions]="{ standalone: true }">
+          <button type="submit" class="btn btn-primary">Update Designation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="table-responsive">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>Designation Details</h2>
+        </div>
+
+      </div>
+    </div>
+         <!-- Add designation form -->
+     <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Serial Number:</th>
+          <th>Action:</th>
+          <th>Designation:</th>
+          <th>Date:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let designation of designations;let i=index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            <div class="action-icons">
+              <i class="fa fa-edit" (click)="editDesignation(designation)"></i>&nbsp;
+              <i class="fa fa-trash" (click)="deleteDesignation(designation)"></i>
+            </div>
+       
+          </td>
+          <td>
+            {{designation.designation}}
+          </td>
+          <td>
+          {{designation.updated_at|date}}
+          </td>
+        </tr>
+      </tbody>
+     </table>    
+  

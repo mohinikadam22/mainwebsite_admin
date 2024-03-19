@@ -1,0 +1,52 @@
+<div class="text-white bg-primary">Result for "Lastest Achievements Details"</div>
+<div class="table-responsive">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>Development Team Details</h2>
+        </div>
+        <a class="btn btn-success" routerLink="/main/add-development-details"><i class="material-icons">&#xE147;</i> <span>Add
+          Development Team Details</span></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="search-container">
+          <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search..."> 
+      </div> 
+    </div>     
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Action</th>
+          <th>Name</th>
+          <th>Photo</th>
+          <th>Designation</th>
+          <th>Qulification</th>
+          <th>Experience (In Years)</th>
+          <th>Status</th>
+          <th>Date</th>
+          
+        </tr>
+      </thead>
+    
+      <tbody *ngFor="let team of filtered; let i=index">
+        <tr >
+          <td>{{i+1}}</td>
+          <td>
+            <i class="fa fa-trash" (click)="deleteTeamDetails(team.id)"  title="Delete"></i>
+          </td>
+          <td>{{team.name}}</td>
+          <td><img [src]="team.photo" alt="Image" style="width: 80px;"></td>
+          <td>{{ team.designation_id}}</td>
+          <td>{{ team.qualification}}</td>
+          <td>{{ team.experience}}</td>
+          <td>{{ team.status}}</td>
+          <td>{{ team.updated_at | date }}</td>
+      </tbody>
+    </table>
+  </div>
+</div>        

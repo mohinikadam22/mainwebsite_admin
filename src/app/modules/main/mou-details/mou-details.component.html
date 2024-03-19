@@ -1,0 +1,40 @@
+<div class="text-white bg-primary">Result for "Lastest Mou Details"</div>
+<div class="table-responsive">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>MOU Details</h2>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-success" routerLink="/main/add-news"><i class="material-icons">&#xE147;</i> <span>Add New
+              MOU</span></a>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Sr No.</th>
+          <th scope="col">Action</th>
+          <th scope="col">Title</th>
+          <th scope="col">College name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let mou of mouDetails; let i=index">
+          <td>{{i+1}}</td>
+          <td>
+            <i class="fa fa-trash" (click)="deleteMou(mou.id)" title="Delete"></i>
+          </td>
+          <td>{{mou.title}}</td>
+          <td>{{mou.college_name}}</td>
+          <td><img [src]="mou.mou_image" style="width: 100px;" alt=" Image"></td>
+          <td>{{mou.created_at | date}}</td>
+      </tbody>
+    </table>
+  </div>
+</div>
